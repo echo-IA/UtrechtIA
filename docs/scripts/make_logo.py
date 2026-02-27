@@ -11,14 +11,14 @@ from matplotlib.font_manager import FontProperties
 # ---------- Defaults ----------
 COLOR_SCHEMES = {
     "white": {"PRIMARY": "#FFFFFF", "ACCENT": "#FFFFFF", "TEXT": "#FFFFFF"},
-    "duke":  {"PRIMARY": "#00539B", "ACCENT": "#00539B", "TEXT": "#00539B"},
+    "utrecht":  {"PRIMARY": "#FFCD00", "ACCENT": "#C00A35", "TEXT": "#000000"},
 }
 
 FONTFACE = "Gill Sans"
 
-PNG_NAME = "carolina_logo.png"
-JPG_NAME = "carolina_logo.jpg"
-SVG_NAME = "carolina_logo.svg"
+PNG_NAME = "utrechtIA_logo.png"
+JPG_NAME = "utrechtIA_logo.jpg"
+SVG_NAME = "utrechtIA.svg"
 
 TILT_ANGLE = -60          # degrees
 LW = 4.5                  # overall line width for arms and ellipse
@@ -41,8 +41,8 @@ ARROW_LEN = 2
 ARROW_LW = 2.5
 
 # Text
-TITLE = "CAROLINA"
-SUBTITLE = "Connecting Analyses and Research \n On Lensing and INtrinsic Alignments"
+TITLE = "UtrechtIA"
+SUBTITLE = "Appropriately ridiculous acronym"
 TITLE_FS = 40
 SUB_FS = 20
 ITAL_SUB = True
@@ -177,7 +177,7 @@ def draw_logo(
 
     # Save
     suffix = "_text" if show_text else "_notext"
-    c_sfx = "" if color_mode == "duke" else "_white"
+    c_sfx = "" if color_mode == "utrecht" else "_white"
 
     png_path = os.path.join(output_dir, PNG_NAME.replace(".png", f"{suffix}{c_sfx}.png"))
     jpg_path = os.path.join(output_dir, JPG_NAME.replace(".jpg", f"{suffix}{c_sfx}.jpg"))
@@ -195,7 +195,7 @@ def parse_args():
     p.add_argument("--dpi", type=int, default=300, help="Image DPI")
     p.add_argument("--figsize", type=float, nargs=2, default=(8, 6), metavar=("W", "H"),
                    help="Figure size inches W H")
-    p.add_argument("--modes", nargs="+", default=["duke", "white"], choices=list(COLOR_SCHEMES.keys()),
+    p.add_argument("--modes", nargs="+", default=["utrecht", "white"], choices=list(COLOR_SCHEMES.keys()),
                    help="Color modes to generate")
     group = p.add_mutually_exclusive_group()
     group.add_argument("--with-text", dest="with_text", action="store_true", help="Generate ONLY text variants")

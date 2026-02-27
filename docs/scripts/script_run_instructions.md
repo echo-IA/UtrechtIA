@@ -16,9 +16,9 @@ published: false
      python docs/scripts/build_schedule_page.py    # if you have one
 
      # assets (logos, nametags, plots like participant stats)
-     python docs/scripts/build_logo.py
-     python docs/scripts/build_nametags.py
-     python docs/scripts/plot_participant_stats.py
+     python docs/scripts/make_logo.py
+     python docs/scripts/make_nametags.py
+     python docs/scripts/make_participant_stats.py
      ```
    - Ensure each script reads the correct input file(s) and that your CSVs contain the required columns.
 
