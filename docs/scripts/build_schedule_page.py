@@ -172,7 +172,7 @@ All times are in EDT and the in-person location is the Center for Health Educati
 ---
 
 """
-    outpath = os.path.join("docs", "pages", "schedule.md")
+    outpath = os.path.join("docs", "pages", "schedule.html")
     with open(outpath, "w", encoding="utf-8") as f:
         f.write(md_header)
         f.write(html_schedule)

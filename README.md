@@ -21,7 +21,7 @@ The UtrechtIA: echo-IA Workshop is the 2026 version of the annual intrinsic alig
 
 ## Quick Links
 - [Website](https://echo-ia.github.io/UtrechtIA/)  
-- [Schedule](https://echo-ia.github.io/UtrechtIA/pages/schedule.md)  
+- [Schedule](https://echo-ia.github.io/UtrechtIA/pages/schedule.html)  
 - [Logistics](https://echo-ia.github.io/CAROLINA/pages/logistics.html)  
 - [Participants](https://echo-ia.github.io/CAROLINA/participants/)  
 - [Registration](https://echo-ia.github.io/CAROLINA/pages/registration.html)  
