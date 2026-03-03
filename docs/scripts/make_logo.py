@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")  # headless-safe
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyArrowPatch, Circle
+from matplotlib.patches import FancyArrowPatch, Circle, Polygon
 from matplotlib.font_manager import FontProperties
 
 # ---------- Defaults ----------
@@ -20,10 +20,13 @@ PNG_NAME = "utrechtIA_logo.png"
 JPG_NAME = "utrechtIA_logo.jpg"
 SVG_NAME = "utrechtIA.svg"
 
-TILT_ANGLE = -60          # degrees
-LW = 4.5                  # overall line width for arms and ellipse
-ELLIPSE_WIDTH = 4.8       # total width
-ELLIPSE_HEIGHT = 2.8      # total height
+TILT_ANGLE = -60
+LW = 4.5
+
+# Slightly smaller ellipse (windmill blades illusion)
+ELLIPSE_WIDTH = 3.8
+ELLIPSE_HEIGHT = 2.2
+
 ARC_DEG = 20
 ARC_START_DEG = -270 + ARC_DEG
 ARC_END_DEG = 90 - ARC_DEG
@@ -60,7 +63,6 @@ def normalized_spiral(theta, b=B_SHAPE):
     return np.clip(r, 0.0, 1.0)
 
 def pts_to_figfrac(pts, fig_height_in):
-    # 72 points = 1 inch
     return pts / (72.0 * fig_height_in)
 
 
@@ -81,7 +83,6 @@ def draw_logo(
     os.makedirs(output_dir, exist_ok=True)
     fig = plt.figure(figsize=figsize)
 
-    # Reserve top band if showing text
     if show_text:
         text_band_pts = 1.1*TITLE_FS + 1.1*SUB_FS + 25
         top_pad = pts_to_figfrac(text_band_pts, figsize[1])
@@ -97,11 +98,11 @@ def draw_logo(
     b = ELLIPSE_HEIGHT / 2.0
 
     theta = np.linspace(0, THETA_MAX, 1200)
-    r1 = normalized_spiral(theta, b=B_SHAPE)
+    r1 = normalized_spiral(theta)
     x1 = r1 * np.cos(theta)
     y1 = r1 * np.sin(theta)
 
-    r2 = normalized_spiral(theta, b=B_SHAPE)
+    r2 = normalized_spiral(theta)
     x2 = r2 * np.cos(theta + ARM_PHASE)
     y2 = r2 * np.sin(theta + ARM_PHASE)
 
@@ -112,11 +113,10 @@ def draw_logo(
     arm1 = R @ X1
     arm2 = R @ X2
 
-    # Spiral arms
     ax.plot(arm1[0], arm1[1], color=PRIMARY, lw=LINEWIDTH, solid_capstyle='round')
     ax.plot(arm2[0], arm2[1], color=PRIMARY, lw=LINEWIDTH, solid_capstyle='round')
 
-    # C-shaped arc (envelope)
+    # C-shaped arc
     tt = np.deg2rad(np.linspace(ARC_START_DEG, ARC_END_DEG, 400))
     x_e = (ELLIPSE_WIDTH / 2.0)  * np.cos(tt)
     y_e = (ELLIPSE_HEIGHT / 2.0) * np.sin(tt)
@@ -127,8 +127,8 @@ def draw_logo(
     bulge_r = min(a, b) * 0.15
     ax.add_patch(Circle((0, 0), radius=bulge_r, facecolor=PRIMARY, edgecolor='none', zorder=0))
 
-    # Arrow (wider head)
-    start_local = np.array([0.0, -0.0])
+    # Arrow
+    start_local = np.array([0.0, 0.0])
     dir_local   = np.array([0.0, ARROW_LEN])
     R_ell = rot2d(TILT_ANGLE)
     start_rot = (R_ell @ start_local).tolist()
@@ -141,10 +141,117 @@ def draw_logo(
     )
     ax.add_patch(arrow)
 
+        # -----------------------------
+    # Windmill tower (outline + brick pattern only)
+    # -----------------------------
+    base_height = 3.6
+    base_top_width = 1.0
+    base_bottom_width = 2.2
+
+    y_top = -ELLIPSE_HEIGHT / 2 - 0.15
+    y_bottom = y_top - base_height
+
+    # Tower outline only (no fill)
+    tower = Polygon([
+        (-base_top_width / 2, y_top),
+        ( base_top_width / 2, y_top),
+        ( base_bottom_width / 2, y_bottom),
+        (-base_bottom_width / 2, y_bottom),
+    ],
+        closed=True,
+        facecolor="none",                 # ← no solid fill
+        edgecolor=colors["TEXT"],         # black outline
+        linewidth=2.5,
+        zorder=1
+    )
+    ax.add_patch(tower)
+
+    # ---- Brick lines (red) ----
+    brick_rows = 12
+    for i in range(brick_rows + 1):
+        frac = i / brick_rows
+        y = y_bottom + frac * base_height
+
+        width = base_bottom_width - (base_bottom_width - base_top_width) * frac
+        x_left = -width / 2
+        x_right = width / 2
+
+        # horizontal mortar lines
+        ax.plot([x_left, x_right], [y, y],
+                color=colors["ACCENT"],   # red bricks
+                lw=1.2,
+                zorder=2)
+
+        # vertical staggered brick seams
+        if i < brick_rows:
+            offset = 0.25 if i % 2 == 0 else 0.0
+            brick_w = 0.45
+            x = x_left + offset
+            while x < x_right:
+                ax.plot([x, x], [y, y + base_height/brick_rows],
+                        color=colors["ACCENT"],
+                        lw=0.8,
+                        zorder=2)
+                x += brick_w
+
+    # -----------------------------
+    # Tulips (real flower silhouette)
+    # -----------------------------
+    def draw_tulip(x, y, scale=1.0):
+        stem_h = 1.2 * scale
+        flower_h = 0.9 * scale
+        flower_w = 0.8 * scale
+
+        # Stem (black)
+        ax.plot([x, x], [y, y + stem_h],
+                color=colors["TEXT"],
+                lw=2,
+                zorder=3)
+
+        # Leaves (curved look using small angled lines)
+        ax.plot([x, x - 0.5*scale],
+                [y + 0.5*scale, y + 0.9*scale],
+                color=colors["TEXT"],
+                lw=2,
+                zorder=3)
+        ax.plot([x, x + 0.5*scale],
+                [y + 0.4*scale, y + 0.8*scale],
+                color=colors["TEXT"],
+                lw=2,
+                zorder=3)
+
+        # Tulip head (three-petal crown shape)
+        petal = Polygon([
+            (x - flower_w/2, y + stem_h),
+            (x - flower_w/4, y + stem_h + flower_h*0.6),
+            (x,              y + stem_h + flower_h),
+            (x + flower_w/4, y + stem_h + flower_h*0.6),
+            (x + flower_w/2, y + stem_h),
+            (x + flower_w/4, y + stem_h + flower_h*0.4),
+            (x,              y + stem_h + flower_h*0.7),
+            (x - flower_w/4, y + stem_h + flower_h*0.4),
+        ],
+            closed=True,
+            facecolor=colors["ACCENT"],   # red petals
+            edgecolor=colors["TEXT"],     # black outline
+            linewidth=1.5,
+            zorder=4
+        )
+
+        ax.add_patch(petal)
+
+    ground_y = y_bottom
+
+    draw_tulip(-2.0, ground_y, 1.0)
+    draw_tulip(-1.3, ground_y, 0.9)
+    draw_tulip(1.3, ground_y, 0.9)
+    draw_tulip(2.0, ground_y, 1.0)
+
     # Text
     if show_text:
         title_fp = FontProperties(family=fontface, weight='light')
-        sub_fp   = FontProperties(family=fontface, weight='light', style='italic' if ITAL_SUB else 'normal')
+        sub_fp   = FontProperties(family=fontface, weight='light',
+                                  style='italic' if ITAL_SUB else 'normal')
 
         band_bottom = axes_rect[1] + axes_rect[3]
         band_top    = 0.995
@@ -162,18 +269,22 @@ def draw_logo(
         subtitle_top = band_top - title_h - G
         sub_step     = (SUB_FS * line_spacing) / 72.0 / fig_h_in
 
-        fig.text(0.5, title_y, "CAROLINA", fontproperties=title_fp,
-                 ha='center', va='top', fontsize=TITLE_FS, color=PRIMARY)
+        fig.text(0.5, title_y, TITLE,
+                 fontproperties=title_fp,
+                 ha='center', va='top',
+                 fontsize=TITLE_FS, color=PRIMARY)
 
         for i, line in enumerate(SUBTITLE.split("\n")):
             y = subtitle_top - i * sub_step
-            fig.text(0.5, y, line, fontproperties=sub_fp,
-                     ha='center', va='top', fontsize=SUB_FS, color=PRIMARY)
+            fig.text(0.5, y, line,
+                     fontproperties=sub_fp,
+                     ha='center', va='top',
+                     fontsize=SUB_FS, color=PRIMARY)
 
     # Frame
     margin = 1
     ax.set_xlim(-ELLIPSE_WIDTH/2 - margin, ELLIPSE_WIDTH/2 + margin)
-    ax.set_ylim(-ELLIPSE_HEIGHT/2 - margin, ELLIPSE_HEIGHT/2 + margin)
+    ax.set_ylim(y_bottom - 1.5, ELLIPSE_HEIGHT/2 + margin)
 
     # Save
     suffix = "_text" if show_text else "_notext"
@@ -190,24 +301,21 @@ def draw_logo(
 
 
 def parse_args():
-    p = argparse.ArgumentParser(description="Generate CAROLINA logo variants.")
-    p.add_argument("--output-dir", default="docs/output_data/logo_output", help="Where to save images")
-    p.add_argument("--dpi", type=int, default=300, help="Image DPI")
-    p.add_argument("--figsize", type=float, nargs=2, default=(8, 6), metavar=("W", "H"),
-                   help="Figure size inches W H")
-    p.add_argument("--modes", nargs="+", default=["utrecht", "white"], choices=list(COLOR_SCHEMES.keys()),
-                   help="Color modes to generate")
+    p = argparse.ArgumentParser(description="Generate UtrechtIA logo variants.")
+    p.add_argument("--output-dir", default="docs/output_data/logo_output")
+    p.add_argument("--dpi", type=int, default=300)
+    p.add_argument("--figsize", type=float, nargs=2, default=(8, 6))
+    p.add_argument("--modes", nargs="+", default=["utrecht", "white"],
+                   choices=list(COLOR_SCHEMES.keys()))
     group = p.add_mutually_exclusive_group()
-    group.add_argument("--with-text", dest="with_text", action="store_true", help="Generate ONLY text variants")
-    group.add_argument("--no-text", dest="no_text", action="store_true", help="Generate ONLY no-text variants")
-    # Default: both text + no-text if neither flag given
+    group.add_argument("--with-text", dest="with_text", action="store_true")
+    group.add_argument("--no-text", dest="no_text", action="store_true")
     return p.parse_args()
 
 
 def main():
     args = parse_args()
 
-    # Decide which text variants to make
     if args.with_text:
         text_variants = [True]
     elif args.no_text:

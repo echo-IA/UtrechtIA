@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/output_data/logo_output/carolina_logo_text.jpg" width="200">
+  <img src="docs/output_data/logo_output/utrechtIA_logo_text.jpg" width="200">
 </p>
 
-**<span style="color:#003366">CAROLINA: echo-IA Workshop</span>**
+**<span style="color:#003366">UtrechtIA: echo-IA Workshop</span>**
 **<span style="color:#cc0033">September 15–19, 2025 · Duke University (Durham, NC) + Online</span>**
 
 ---
