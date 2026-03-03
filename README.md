@@ -3,7 +3,7 @@
 </p>
 
 **<span style="color:#003366">UtrechtIA: echo-IA Workshop</span>**
-**<span style="color:#cc0033">September 15–19, 2025 · Duke University (Durham, NC) + Online</span>**
+**<span style="color:#cc0033">31st August - 4th September, 2026 · Utrecth University, Utrecht, NL + Online</span>**
 
 ---
 
@@ -21,7 +21,7 @@ The UtrechtIA: echo-IA Workshop is the 2026 version of the annual intrinsic alig
 
 ## Quick Links
 - [Website](https://echo-ia.github.io/UtrechtIA/)  
-- [Schedule](https://echo-ia.github.io/UtrechtIA/pages/schedule.html)  
+- [Schedule](https://echo-ia.github.io/UtrechtIA/pages/schedule.md)  
 - [Logistics](https://echo-ia.github.io/CAROLINA/pages/logistics.html)  
 - [Participants](https://echo-ia.github.io/CAROLINA/participants/)  
 - [Registration](https://echo-ia.github.io/CAROLINA/pages/registration.html)  
