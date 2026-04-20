@@ -6,7 +6,9 @@ order: 3
 
 # Schedule
 
-The location for these sessions is the [Mary Duke Biddle Center for Health Education](https://www.google.com/maps?client=firefox-b-1-d&sca_esv=c48dc88e8766c10f&output=search&q=mary+duke+biddle+trent+semans+center+for+health+education&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIehZSPZtqywdxHK81a_1UWmZHKJ6oqjHuUktiabrRPeHJMsvLtH8GNAdGHXBY55oOcQgKj85Zt8V0rJBqqM2jRLVOpwhMemqaFe_3JlhfsrbwzIEzn71Fr66wXjX2eFkeBIwcD5fliuxdO7E3jZZwFrqx1YiZL2nX8zmQMDFMNA9nTTfsA&entry=mc&ved=1t:200715&ictx=111).
+Soon to be announced.
+
+<!-- The location for these sessions is the [Mary Duke Biddle Center for Health Education](https://www.google.com/maps?client=firefox-b-1-d&sca_esv=c48dc88e8766c10f&output=search&q=mary+duke+biddle+trent+semans+center+for+health+education&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIehZSPZtqywdxHK81a_1UWmZHKJ6oqjHuUktiabrRPeHJMsvLtH8GNAdGHXBY55oOcQgKj85Zt8V0rJBqqM2jRLVOpwhMemqaFe_3JlhfsrbwzIEzn71Fr66wXjX2eFkeBIwcD5fliuxdO7E3jZZwFrqx1YiZL2nX8zmQMDFMNA9nTTfsA&entry=mc&ved=1t:200715&ictx=111).
 
 Participants are welcome to meet/work before and after the scheduled events.
 The Mary Duke Biddle Trent Semans Center for Health Education is typically open from 8am to 5pm
@@ -87,4 +89,4 @@ All times are in EDT and the in-person location is the Center for Health Educati
   <tbody>
     <tr><td>09:00–09:30</td><td>Room 1</td><td>Coffee &amp; Arrival</td><td>N/A</td></tr><tr><td>09:30–12:30</td><td>Room 1</td><td>Final Presentations / Wrap-up Work</td><td>TBA</td></tr><tr><td>12:30–13:30</td><td>Hallway/Duke Campus</td><td>Lunch</td><td>N/A</td></tr><tr><td>13:30–15:00</td><td>Room 1</td><td>Long Tag-up: Summary &amp; Future Planning</td><td>All</td></tr><tr><td>15:00–17:00</td><td>Various</td><td>Optional Work / Departure</td><td>N/A</td></tr>
   </tbody>
-</table>
+</table> -->

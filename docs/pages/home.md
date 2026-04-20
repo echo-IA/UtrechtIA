@@ -5,8 +5,8 @@ permalink: /
 order: 1
 ---
 
-We are excited to announce the latest installment of **echo-IA**, **CAROLINA: Connecting Analyses and Research On Lensing and INtrinsic Alignments**,  
-to be held at Duke University from **Monday, September 15 – Friday, September 19, 2025**.  
+We are excited to announce the latest installment of **echo-IA**, **UNBIAS: UNdoing Bias from Intrinsic Alignments in StageIV-surveys**,  
+to be held at Utrecht University from **Monday, August 31 – Friday, September 4 2026**.  
 
 The core meeting will focus on hands-on collaboration, with most of the week dedicated to project incubation, technical discussions, and cross-survey coordination. Activities on Friday will build on work completed throughout the week, including final presentations, planning follow-ups, and group tag-ups.
 
@@ -31,7 +31,7 @@ a comprehensive and accessible overview, available on arXiv: [2309.08605](https:
 Characterizing IA is essential for upcoming cosmological surveys to reach their science goals.
 IA is best constrained through **synergies across surveys**, particularly by combining imaging and spectroscopic data.  
 
-CAROLINA will bring together members of cosmological surveys and theory/simulation groups working on IA.
+UNBIAS will bring together members of cosmological surveys and theory/simulation groups working on IA.
 The workshop will include overview talks (broad introductions and updates on recent advancements),
 technical sessions, and short participant talks.
 Most of the schedule will be reserved for collaborative 
@@ -41,12 +41,13 @@ work and discussion. Virtual participation will be available for all talks and s
 
 # About echo-IA
 
-The CAROLINA workshop is organized as part of
+The UNBIAS workshop is organized as part of
 **[echo-IA (Enabling Cosmology with Homogenized Observations of Intrinsic Alignments)](https://github.com/echo-IA)**,
 a community initiative uniting measurement and modeling experts to coordinate analyses of IA in a common framework
 for future surveys.  
 
-Previous echo-IA workshops include:  
+Previous echo-IA workshops include:
+- [2025 - CAROLINA: Connecting Analyses and Research On Lensing and INtrinsic Alignments](https://echo-ia.github.io/CAROLINA/)
 - [2024 – LILAC: Linking Intrinsic Alignments Across Collaborations (at Harvard University)](https://echo-ia.github.io/LILAC/)  
 - [2023 – hol-IA: a holistic approach to galaxy intrinsic alignments (at Leiden University)](https://www.lorentzcenter.nl/hol-ia-a-holistic-approach-to-galaxy-intrinsic-alignments.html)  
 - [2022 – Kickoff Workshop (online)](https://echo-ia.github.io/FebKickoff/)  
@@ -54,11 +55,20 @@ Previous echo-IA workshops include:
 ---
 
 # Organizing Committee
+- Elisa Chisari, Utrecht University
+- Henk Hoekstra, Leiden Observatory
+- Marloes van Heukulum, Utrecht University
+- Jonas Frugte, Utrecht University
+- Aniruddh Herle, Leiden Observatory
+- Dennis Neumann, Leiden Observatory,
+- Casper Vedder, Leiden Observatory
+- David Navarro, Leiden Observatory
 
+<!-- 
 - [Niko Šarčević](https://nikosarcevic.com/), Duke University  
 - [Jonathan Blazek](https://cos.northeastern.edu/people/jonathan-blazek/), Northeastern University  
 - [Benjamin Joachimi](http://www.star.ucl.ac.uk/~joachimi/), University College London  
 - [Michael Troxel](https://scholars.duke.edu/person/michael.troxel), Duke University  
 - [Susan Tierney](https://research.duke.edu/profile/susan-tierney/), Duke University  
 - [Bekah Polen](https://scholars.duke.edu/person/bekah.polen), Duke University  
-- [Raul Teixeira](https://scholars.duke.edu/person/Raul.Gomez.del.Estal.Teixeira), Duke University  
+- [Raul Teixeira](https://scholars.duke.edu/person/Raul.Gomez.del.Estal.Teixeira), Duke University   -->
