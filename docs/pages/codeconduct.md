@@ -5,7 +5,6 @@ order: 7
 ---
 
 [Code of Conduct](#code-of-contact) <br>
-[Duke Community Standard](#duke-community-standard) <br>
 [Anonymous Comment Form](#anonymous-comment-form) <br>
 
 ---
@@ -66,15 +65,9 @@ This document draws language and structure from:
 
 --------------------
 
-# Duke Community Standard
-
-All particpants are expected to additionally abide by the [Duke Community Standard](https://dukecommunitystandard.students.duke.edu#:~:text=To%20uphold%20the%20Duke%20Community,if%20the%20Standard%20is%20compromised.).
-
---------------------
-
 # Anonymous Comment Form
 
-You can anonymously contact the organizers with any concern during the workshop by filling out [this form](https://forms.gle/f4wto4tNnHg6iG9K7).
+You can anonymously contact the organizers with any concern during the workshop by filling out THIS YET NOT EXISTING FORM
 
 
 

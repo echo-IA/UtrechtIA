@@ -16,7 +16,7 @@
 title: 'UNBIAS: echoIA Workshop'
 email: dneumann@strw.leidenuniv.nl
 description: >- # this means to ignore newlines until "baseurl:"
-  August 31- September 4, 2026 (Utrecht University | Utrecht, The Netherlands)
+  August 31- September 4, 2026 (Utrecht University | Utrecht, the Netherlands)
 baseurl: "/UtrechtIA" # the subpath of your site, e.g. /blog
 url: "https://echo-IA.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: echo-IA
