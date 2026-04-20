@@ -47,7 +47,7 @@ a community initiative uniting measurement and modeling experts to coordinate an
 for future surveys.  
 
 Previous echo-IA workshops include:
-- [2025 - CAROLINA: Connecting Analyses and Research On Lensing and INtrinsic Alignments](https://echo-ia.github.io/CAROLINA/)
+- [2025 - CAROLINA: Connecting Analyses and Research On Lensing and INtrinsic Alignments (at Duke University)](https://echo-ia.github.io/CAROLINA/)
 - [2024 – LILAC: Linking Intrinsic Alignments Across Collaborations (at Harvard University)](https://echo-ia.github.io/LILAC/)  
 - [2023 – hol-IA: a holistic approach to galaxy intrinsic alignments (at Leiden University)](https://www.lorentzcenter.nl/hol-ia-a-holistic-approach-to-galaxy-intrinsic-alignments.html)  
 - [2022 – Kickoff Workshop (online)](https://echo-ia.github.io/FebKickoff/)  
